@@ -26,30 +26,36 @@ class Container extends Component{
     }
     
     flatList() {
-        return this.props.flat.map(fish => {
-            return <FishItem key={fish.id} fish={fish} />
+        return this.props.flat.map((fish, index) => {
+            return <FishItem key={fish.id} fish={fish} ranking={index+1}/>
         })
     }
 
     channelList() {
-        return this.props.channel.map(fish => {
-            return <FishItem key={fish.id} fish={fish} />
+        return this.props.channel.map((fish, index) => {
+            return <FishItem key={fish.id} fish={fish} ranking={index+1} />
         })
     }
     render (){
         return (
             <Paper>
             <Table>
-                <THead type={'Blue Fish'}/>
+                <THead type={'Blue Catfish'}/>
+                <TableBody>
                 {this.props.blue ? this.blueList() : null}
+                </TableBody>
             </Table>
             <Table>
-                <THead type={'Flat Fish'}/>
+                <THead type={'Flathead Catfish'}/>
+                <TableBody>
                 {this.props.flat ? this.flatList() : null}
+                </TableBody>
             </Table>
             <Table>
-                <THead type={'Channel Fish'}/>
+                <THead type={'Channel CatFish'}/>
+                <TableBody>
                 {this.props.channel ? this.channelList() : null}
+                </TableBody>
             </Table>
             </Paper>
 )
