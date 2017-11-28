@@ -41,15 +41,21 @@ class Container extends Component{
             <Paper>
             <Table>
                 <THead type={'Blue Catfish'}/>
+                <TableBody>
                 {this.props.blue ? this.blueList() : null}
+                </TableBody>
             </Table>
             <Table>
                 <THead type={'Flathead Catfish'}/>
+                <TableBody>
                 {this.props.flat ? this.flatList() : null}
+                </TableBody>
             </Table>
             <Table>
                 <THead type={'Channel CatFish'}/>
+                <TableBody>
                 {this.props.channel ? this.channelList() : null}
+                </TableBody>
             </Table>
             </Paper>
 )
