@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withStyles } from 'material-ui/styles'
 import Paper from 'material-ui/Paper';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Table, { TableBody } from 'material-ui/Table';
 import THead from './THead';
 import FishItem from './FishItem';
 import * as anglerActions from '../actions/angler_actions';
-
-const styles = theme => {
-    root: {
-        width: '70%'
-    }
-}
 
 class Container extends Component{
     componentDidMount() {
@@ -75,4 +68,5 @@ const mapDispatchToProps = (dispatch) => {
         actions: bindActionCreators(anglerActions, dispatch)
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Container);
