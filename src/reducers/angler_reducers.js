@@ -9,8 +9,14 @@ export default (state=[], action) => {
                 fish.weight = Math.round(fish.girth*fish.girth*fish.length/800)
                 return fish
             });
-            const sortedFish = unsortedFish.filter(fish => fish.species === 'channel').sort((a, b) => b.weight - a.weight).slice(0,5)
-            return sortedFish;
+            const channelFish = unsortedFish.filter(fish => fish.species === 'channel').sort((a, b) => b.weight - a.weight).slice(0,5)
+            const flatFish = unsortedFish.filter(fish => fish.species === 'flat').sort((a, b) => b.weight - a.weight).slice(0,5);
+            const blueFish = unsortedFish.filter(fish => fish.species === 'blue').sort((a, b) => b.weight - a.weight).slice(0,5)
+            return {
+                channel: channelFish,
+                flat: flatFish,
+                blue: blueFish
+            };
         default:
             return state;
     }
