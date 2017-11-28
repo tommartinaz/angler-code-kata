@@ -1,11 +1,10 @@
-import { createStore, applyMiddleware } from 'react-redux';
-import { logger } from 'redux-logger';
-import { promises } from 'redux-promise-middleware';
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+import promises from 'redux-promise-middleware';
 import rootReducer from './reducers';
-import { combineReducers } from './node_modules/redux/index';
 
 export default (InitialState) => {
-    return combineReducers(
+    return createStore(
         rootReducer, applyMiddleware(logger, promises())
     )
 }
