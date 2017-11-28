@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import { withStyles } from 'material-ui/styles'
 import Paper from 'material-ui/Paper';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
-import THead from './THead'
+import THead from './THead';
+import FishItem from './FishItem';
 import * as anglerActions from '../actions/angler_actions';
 
 const styles = theme => {
@@ -19,8 +20,8 @@ class Container extends Component{
     }
 
     blueList() {
-        return this.props.blue.map(fish => {
-            return <FishItem key={fish.id} fish={fish} />
+        return this.props.blue.map((fish, index) => {
+            return <FishItem key={fish.id} fish={fish} ranking={index+1} />
         })
     }
     
@@ -37,10 +38,21 @@ class Container extends Component{
     }
     render (){
         return (
-            <ul>
+            <Paper>
+            <Table>
+                <THead type={'Blue Fish'}/>
                 {this.props.blue ? this.blueList() : null}
-            </ul>
-        )
+            </Table>
+            <Table>
+                <THead type={'Flat Fish'}/>
+                {this.props.flat ? this.flatList() : null}
+            </Table>
+            <Table>
+                <THead type={'Channel Fish'}/>
+                {this.props.channel ? this.channelList() : null}
+            </Table>
+            </Paper>
+)
     }
 }
 
