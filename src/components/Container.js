@@ -26,14 +26,14 @@ class Container extends Component{
     }
     
     flatList() {
-        return this.props.flat.map(fish => {
-            return <FishItem key={fish.id} fish={fish} />
+        return this.props.flat.map((fish, index) => {
+            return <FishItem key={fish.id} fish={fish} ranking={index+1}/>
         })
     }
 
     channelList() {
-        return this.props.channel.map(fish => {
-            return <FishItem key={fish.id} fish={fish} />
+        return this.props.channel.map((fish, index) => {
+            return <FishItem key={fish.id} fish={fish} ranking={index+1} />
         })
     }
     render (){
