@@ -69,33 +69,10 @@ class Container extends Component{
                 {flathead && createTable(flathead, classes, 'Flathead Catfish')}
             </div>
         )
-//         return (
-//             <Paper className={classes.root}>
-//             <Table className={classes.title}>
-//                 <THead type={'Blue Catfish'}/>
-//                 <TableBody>
-//                 {this.props.blue ? this.blueList() : null}
-//                 </TableBody>
-//             </Table>
-//             <Table>
-//                 <THead type={'Flathead Catfish'}/>
-//                 <TableBody>
-//                 {this.props.flathead ? this.flatList() : null}
-//                 </TableBody>
-//             </Table>
-//             <Table>
-//                 <THead type={'Channel CatFish'}/>
-//                 <TableBody>
-//                 {this.props.channel ? this.channelList() : null}
-//                 </TableBody>
-//             </Table>
-//             </Paper>
-// )
     }
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         flathead: state.anglers.flathead,
         channel: state.anglers.channel,

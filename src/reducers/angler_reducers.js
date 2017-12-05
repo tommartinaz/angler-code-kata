@@ -15,7 +15,6 @@ export default (state=[], action) => {
                 prev[next.species].push(next)
                 return prev;
             }, {});
-            console.log("FISHES FROM REDUCER", fishes)
             return fishes;
         default:
             return state;
