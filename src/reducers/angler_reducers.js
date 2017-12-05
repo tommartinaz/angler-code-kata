@@ -8,15 +8,15 @@ export default (state=[], action) => {
             const unsortedFish = action.payload.data.map(fish => {
                 return {...fish, weight: Math.round(fish.girth*fish.girth*fish.length/800)};
             });
-            
-            const channelFish = unsortedFish.filter(fish => fish.species === 'channel').sort((a, b) => b.weight - a.weight).slice(0,5)
-            const flatFish = unsortedFish.filter(fish => fish.species === 'flathead').sort((a, b) => b.weight - a.weight).slice(0,5);
-            const blueFish = unsortedFish.filter(fish => fish.species === 'blue').sort((a, b) => b.weight - a.weight).slice(0,5)
-            return {
-                channel: channelFish,
-                flat: flatFish,
-                blue: blueFish
-            };
+
+            const sortedFish = unsortedFish.sort((a,b) => b.weight - a.weight);
+            const fishes =  sortedFish.reduce((prev, next) => {
+                if (!prev[next.species]) prev[next.species] = []
+                prev[next.species].push(next)
+                return prev;
+            }, {});
+            console.log("FISHES FROM REDUCER", fishes)
+            return fishes;
         default:
             return state;
     }
