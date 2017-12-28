@@ -38,7 +38,9 @@ const createTable = (fish, classes, title) => (
                 </TableRow>
             </TableHead>
             <TableBody>
-                {fish && fish.slice(0,5).map(j
+                {fish && fish.slice(0,5).map((n, k) => {
+                    return (
+                        <TableRow>
                             <TableCell>{k + 1}</TableCell>
                             <TableCell>{n.angler}</TableCell>
                             <TableCell numeric>{n.weight}</TableCell>
@@ -76,13 +78,13 @@ const mapStateToProps = (state) => {
         channel: state.anglers.channel,
         blue: state.anglers.blue
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         actions: bindActionCreators(anglerActions, dispatch)
     }
-}
+};
 
 const Leaders = connect(mapStateToProps, mapDispatchToProps)(Container);
 export default withStyles(styles)(Leaders);
