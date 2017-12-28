@@ -38,9 +38,7 @@ const createTable = (fish, classes, title) => (
                 </TableRow>
             </TableHead>
             <TableBody>
-                {fish && fish.slice(0,5).map((n,k) => {
-                    return (
-                        <TableRow key={n.id}>
+                {fish && fish.slice(0,5).map(j
                             <TableCell>{k + 1}</TableCell>
                             <TableCell>{n.angler}</TableCell>
                             <TableCell numeric>{n.weight}</TableCell>
